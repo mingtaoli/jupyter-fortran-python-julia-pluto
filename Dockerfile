@@ -2,6 +2,10 @@ FROM jupyter/datascience-notebook:ubuntu-20.04
 
 LABEL maintainer="XJTU Ai4energy Team <mingtao@xjtu.edu.cn>"
 
+ARG NB_USER="jovyan"
+ARG NB_UID="1000"
+ARG NB_GID="100"
+
 USER ${NB_USER}
 
 RUN mamba install --quiet --yes \
