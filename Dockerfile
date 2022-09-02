@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:ubuntu-20.04
+FROM jupyter/datascience-notebook:ubuntu-22.04
 
 LABEL maintainer="XJTU Ai4energy Team <mingtao@xjtu.edu.cn>"
 
@@ -9,7 +9,7 @@ ARG NB_GID="100"
 USER ${NB_USER}
 
 RUN mamba install --quiet --yes \
-    'fortran-magic' && \
+    'fortran-magic' 'lfortran' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
